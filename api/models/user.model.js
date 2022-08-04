@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 01/08/2022 06:50
+ * Copyright (c) 04/08/2022 07:56
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -22,7 +22,7 @@ exports.createTable = () => {
             table.string('nationality', 255);
             table.date('birthday');
             table.string('birthday_place', 255);
-            table.enum('sex', ['M', 'F']);
+            table.enum('sex', ['Masculin', 'Feminin']);
             table.string('email', 255).unique().index();
             table.string('phone', 255);
             table.string('password', 255);
@@ -44,7 +44,7 @@ const seed = async () => await DBInstance
       nationality: 'CMR',
       birthday: '1999-02-10',
       birthday_place: 'Douala',
-      sex: 'M',
+      sex: 'Masculin',
       email: 'admin@enspd.cm',
       phone: '000000000',
       password: bcrypt.hashSync('password', 8)

@@ -11,18 +11,18 @@ GET http://localhost:3000/filiere
 Accept: application/json
 
 ### Create a filiere
-POST http://localhost:3000/filiere
+POST http://localhost:3000/option
 Accept: application/json
 Content-Type: application/json
 
 [
   {
-    "code": "MM",
-    "libelle": "Mécanique et Matériaux"
+    "code": "Me",
+    "libelle": "Mécanique"
   },
   {
-    "code": "En",
-    "libelle": "Energie"
+    "code": "EE",
+    "libelle": "Energie Eoleen"
   }
 ]
 

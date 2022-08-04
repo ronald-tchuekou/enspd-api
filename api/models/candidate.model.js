@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 04/08/2022 06:40
+ * Copyright (c) 04/08/2022 08:22
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -21,8 +21,8 @@ exports.createTable = () => {
                table.string('prenom', 255);
                table.date('date_nais');
                table.string('lieu_nais', 255);
-               table.string('region_origine', 255);
-               table.string('depart_origine', 255);
+               table.integer('region_origine', 10);
+               table.integer('depart_origine', 10);
                table.string('statut_mat', 255);
                table.enum('sexe', ['Masculin', 'Feminin']);
                table.string('nationalite', 255);
