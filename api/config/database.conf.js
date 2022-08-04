@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 01/08/2022 06:22
+ * Copyright (c) 04/08/2022 14:10
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -12,10 +12,16 @@ const knex = require('knex');
 exports.getDBInstance = () => knex({
    client: 'mysql',
    connection: {
-      host: 'localhost',
+      /*host: 'localhost',
       port: 3306,
       user: 'root',
       password: '',
+      database: 'enspd_database',*/
+
+      host: 'ee55f0b.online-server.cloud',
+      port: 3306,
+      user: 'roncoder',
+      password: 'password',
       database: 'enspd_database'
    }
 });
