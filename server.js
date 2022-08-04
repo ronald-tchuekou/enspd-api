@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 04/08/2022 07:28
+ * Copyright (c) 04/08/2022 07:48
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -16,6 +16,7 @@ const candidateRoutes = require('./api/routes/candidate.route');
 const filiereRoutes = require('./api/routes/filiere.route');
 const optionRoutes = require('./api/routes/option.route');
 const regionRoutes = require('./api/routes/region.route');
+const diplomeRoutes = require('./api/routes/diplome.route');
 
 // Get the application.
 const app = express();
@@ -26,20 +27,11 @@ app.use(cors());
 app.use(compression());
 app.use(bodyparser.json({ limit: '50mb' }));
 app.use(bodyparser.urlencoded({
-   limit: '50mb',
-   parameterLimit: 100000,
-   extended: true
+   limit: '50mb', parameterLimit: 100000, extended: true
 }));
-app.use((
-   req,
-   res,
-   next
-) => {
+app.use((req, res, next) => {
    res.header('Access-Control-Allow-Origin', '*');
-   res.header(
-      'Access-Control-Allow-Headers',
-      'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-access-token'
-   );
+   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization, x-access-token');
    if (req.method === 'OPTIONS') {
       res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
       return res.status(200).json({});
@@ -53,6 +45,7 @@ require('./api/models/candidate.model').createTable();
 require('./api/models/filiere.model').createTable();
 require('./api/models/option.model').createTable();
 require('./api/models/region.model').createTable();
+require('./api/models/diplome.model').createTable();
 require('./api/models/user.model').createTable();
 
 // Routes
@@ -64,6 +57,7 @@ app.use('/candidate', candidateRoutes);
 app.use('/filiere', filiereRoutes);
 app.use('/option', optionRoutes);
 app.use('/region', regionRoutes);
+app.use('/diplome', diplomeRoutes);
 
 // Server listening.
 const port = process.env.PORT || 3000;
