@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 01/08/2022 06:49
+ * Copyright (c) 04/08/2022 06:40
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -21,40 +21,21 @@ exports.createTable = () => {
                table.string('prenom', 255);
                table.date('date_nais');
                table.string('lieu_nais', 255);
-               table.string('sexe', 255);
-               table.string('nationalite', 255);
-               table.string('langue', 255);
-               table.string('cni_num', 255);
-               table.date('cni_date');
-               table.string('dip_equiv', 255);
-               table.string('opt_equiv', 255);
-               table.string('opt_comp', 255);
-               table.string('telephone', 255);
+               table.string('region_origine', 255);
+               table.string('depart_origine', 255);
                table.string('statut_mat', 255);
-               table.string('tentative', 255);
-               table.string('sms', 255);
-               table.string('num_ds_phys', 255);
-               table.integer('photo_id');
-               table.integer('centre_id');
-               table.integer('diplome_requis_par_option_id');
-               table.string('mention', 255);
-               table.string('annee_dip', 255);
-               table.string('dpt_origine', 255);
-               table.string('cni_lieu', 255);
-               table.string('email', 255);
-               table.string('centre_origine', 255);
-               table.string('deleted', 255);
-               table.string('deletedby', 255);
-               table.string('deletedon', 255);
-               table.string('updated', 255);
-               table.string('updatedon', 255);
-               table.string('updatedby', 255);
-               table.string('centre_depot', 255);
+               table.enum('sexe', ['Masculin', 'Feminin']);
+               table.string('nationalite', 255);
                table.string('nom_pere', 255);
                table.string('prof_pere', 255);
                table.string('nom_mere', 255);
                table.string('prof_mere', 255);
-               table.string('tel_tut', 255);
+               table.enum('cursus', ['Science Ingénieur', 'Ingénieur']);
+               table.integer('niveau', 10);
+               table.integer('filiere_choisie', 10);
+               table.integer('option_choisie', 10);
+               table.integer('diplome_entree', 10);
+               table.boolean('admis').defaultTo(false);
                table.timestamps(true, true, false);
             })
             .asCallback(() => {

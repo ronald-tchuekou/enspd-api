@@ -1,0 +1,41 @@
+### Get all options
+GET http://localhost:3000/option
+Accept: application/json
+
+### Get all candidates
+GET http://localhost:3000/candidate
+Accept: application/json
+
+### Get all filiers
+GET http://localhost:3000/filiere
+Accept: application/json
+
+### Create a filiere
+POST http://localhost:3000/filiere
+Accept: application/json
+Content-Type: application/json
+
+[
+  {
+    "code": "MM",
+    "libelle": "Mécanique et Matériaux"
+  },
+  {
+    "code": "En",
+    "libelle": "Energie"
+  }
+]
+
+### Update a filiere
+PUT http://localhost:3000/filiere/1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "libelle": "Mécanique du matériel"
+}
+
+### Delete a filiere
+DELETE http://localhost:3000/filiere/2
+Accept: application/json
+Content-Type: application/json
