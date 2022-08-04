@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 04/08/2022 06:53
+ * Copyright (c) 04/08/2022 07:28
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -15,6 +15,7 @@ const authRoutes = require('./api/routes/auth.route');
 const candidateRoutes = require('./api/routes/candidate.route');
 const filiereRoutes = require('./api/routes/filiere.route');
 const optionRoutes = require('./api/routes/option.route');
+const regionRoutes = require('./api/routes/region.route');
 
 // Get the application.
 const app = express();
@@ -51,6 +52,7 @@ app.use(express.static(__dirname + '/public'));
 require('./api/models/candidate.model').createTable();
 require('./api/models/filiere.model').createTable();
 require('./api/models/option.model').createTable();
+require('./api/models/region.model').createTable();
 require('./api/models/user.model').createTable();
 
 // Routes
@@ -61,6 +63,7 @@ app.use('/auth', authRoutes);
 app.use('/candidate', candidateRoutes);
 app.use('/filiere', filiereRoutes);
 app.use('/option', optionRoutes);
+app.use('/region', regionRoutes);
 
 // Server listening.
 const port = process.env.PORT || 3000;
