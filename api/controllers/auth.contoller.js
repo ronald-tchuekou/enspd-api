@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 02/08/2022 09:15
+ * Copyright (c) 05/08/2022 04:31
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -87,7 +87,7 @@ exports.createUser = async (req, res) => {
       const data = {
          ...req.body,
          password: bcrypt.hashSync(req.body.password, 8),
-         create_token: bcrypt.hashSync('create account token', 8)
+         created_token: bcrypt.hashSync('create account token', 8)
       };
       const response = await UserModel.postUser(data);
       res.json(response);
