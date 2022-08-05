@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 04/08/2022 07:48
+ * Copyright (c) 05/08/2022 06:39
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -17,6 +17,7 @@ const filiereRoutes = require('./api/routes/filiere.route');
 const optionRoutes = require('./api/routes/option.route');
 const regionRoutes = require('./api/routes/region.route');
 const diplomeRoutes = require('./api/routes/diplome.route');
+const departementRoutes = require('./api/routes/departement.route');
 
 // Get the application.
 const app = express();
@@ -45,6 +46,7 @@ require('./api/models/candidate.model').createTable();
 require('./api/models/filiere.model').createTable();
 require('./api/models/option.model').createTable();
 require('./api/models/region.model').createTable();
+require('./api/models/departement.model').createTable();
 require('./api/models/diplome.model').createTable();
 require('./api/models/user.model').createTable();
 
@@ -58,6 +60,7 @@ app.use('/filiere', filiereRoutes);
 app.use('/option', optionRoutes);
 app.use('/region', regionRoutes);
 app.use('/diplome', diplomeRoutes);
+app.use('/departement', departementRoutes);
 
 // Server listening.
 const port = process.env.PORT || 3000;
