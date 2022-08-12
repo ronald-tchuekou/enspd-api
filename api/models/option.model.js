@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 12/08/2022 07:12
+ * Copyright (c) 12/08/2022 07:33
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -53,12 +53,20 @@ exports.updateOption = async (document, id) => await DBInstance
    .update(document);
 
 exports.getOptions = async () => await DBInstance
-   .select()
+   .join(FiliereTableName, tableName + '.filiere_id', FiliereTableName + '.id')
+   .select(
+      tableName + '.*',
+      FiliereTableName + '.libelle as filiere'
+   )
    .table(tableName);
 
 exports.getOptionWhere = async (query) => await DBInstance
+   .join(FiliereTableName, tableName + '.filiere_id', FiliereTableName + '.id')
+   .select(
+      tableName + '.*',
+      FiliereTableName + '.libelle as filiere'
+   )
    .where({ query })
-   .select()
    .table(tableName);
 
 exports.deleteAll = async () => await DBInstance
