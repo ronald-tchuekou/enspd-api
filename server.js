@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 05/08/2022 06:39
+ * Copyright (c) 12/08/2022 07:10
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -43,8 +43,11 @@ app.use(express.static(__dirname + '/public'));
 
 // Connection for mysql database.
 require('./api/models/candidate.model').createTable();
+require('./api/models/candidate.model').addAttenteColumn();
 require('./api/models/filiere.model').createTable();
+require('./api/models/filiere.model').addCursusColumn();
 require('./api/models/option.model').createTable();
+require('./api/models/option.model').addFiliereIdColumn();
 require('./api/models/region.model').createTable();
 require('./api/models/departement.model').createTable();
 require('./api/models/diplome.model').createTable();

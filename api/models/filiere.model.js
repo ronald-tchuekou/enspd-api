@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 04/08/2022 06:40
+ * Copyright (c) 11/08/2022 05:04
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -24,6 +24,16 @@ exports.createTable = () => {
             .asCallback(() => {
                console.log('Filieres table is ready!');
             });
+      }
+   });
+};
+
+exports.addCursusColumn = () => {
+   DBInstance.schema.hasColumn(tableName, 'cursus').then(exist => {
+      if (!exist) {
+         DBInstance.schema.table(tableName, table => {
+            table.enum('cursus', ['Science Ingénieur', 'Ingénieur']);
+         }).then(() => console.log('Add cursus column in filieres table.'));
       }
    });
 };

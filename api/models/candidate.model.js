@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 04/08/2022 08:22
+ * Copyright (c) 11/08/2022 04:34
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -43,6 +43,17 @@ exports.createTable = () => {
             });
       }
    });
+};
+
+exports.addAttenteColumn = () => {
+   DBInstance.schema.hasColumn(tableName, 'attente')
+      .then(exist => {
+         if (!exist) {
+            DBInstance.schema.table(tableName, (table) => {
+               table.boolean('attente').defaultTo(false);
+            }).then(() => console.log('Attente column is added to Candidates table.'));
+         }
+      });
 };
 
 exports.postCandidate = async (document) => await DBInstance

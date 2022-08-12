@@ -6,6 +6,11 @@ Accept: application/json
 GET http://localhost:3000/candidate
 Accept: application/json
 
+### Update Candidate
+PUT http://localhost:3000/candidate/4368
+Accept: application/json
+
+
 ### Get all filiers
 GET http://localhost:3000/filiere
 Accept: application/json
