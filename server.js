@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 12/08/2022 07:10
+ * Copyright (c) 13/08/2022 17:43
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -18,6 +18,7 @@ const optionRoutes = require('./api/routes/option.route');
 const regionRoutes = require('./api/routes/region.route');
 const diplomeRoutes = require('./api/routes/diplome.route');
 const departementRoutes = require('./api/routes/departement.route');
+const collectionRoutes = require('./api/routes/collection.route');
 
 // Get the application.
 const app = express();
@@ -42,8 +43,9 @@ app.use((req, res, next) => {
 app.use(express.static(__dirname + '/public'));
 
 // Connection for mysql database.
+require('./api/models/collection.model').createTable();
 require('./api/models/candidate.model').createTable();
-require('./api/models/candidate.model').addAttenteColumn();
+require('./api/models/candidate.model').addColumns();
 require('./api/models/filiere.model').createTable();
 require('./api/models/filiere.model').addCursusColumn();
 require('./api/models/option.model').createTable();
@@ -64,6 +66,7 @@ app.use('/option', optionRoutes);
 app.use('/region', regionRoutes);
 app.use('/diplome', diplomeRoutes);
 app.use('/departement', departementRoutes);
+app.use('/collection', collectionRoutes);
 
 // Server listening.
 const port = process.env.PORT || 3000;

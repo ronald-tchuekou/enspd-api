@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 11/08/2022 04:34
+ * Copyright (c) 13/08/2022 17:44
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
 
 const db_config = require('../config/database.conf');
+const { CollectionTableName } = require('./collection.model');
 
 const DBInstance = db_config.getDBInstance();
 const tableName = 'candidates';
@@ -45,13 +46,50 @@ exports.createTable = () => {
    });
 };
 
-exports.addAttenteColumn = () => {
+exports.addColumns = () => {
    DBInstance.schema.hasColumn(tableName, 'attente')
       .then(exist => {
          if (!exist) {
             DBInstance.schema.table(tableName, (table) => {
                table.boolean('attente').defaultTo(false);
             }).then(() => console.log('Attente column is added to Candidates table.'));
+         }
+      });
+   DBInstance.schema.hasColumn(tableName, 'collection_id')
+      .then(exist => {
+         if (!exist) {
+            DBInstance.schema.table(tableName, (table) => {
+               table.integer('collection_id', 10)
+                  .nullable()
+                  .unsigned()
+                  .index()
+                  .references('id')
+                  .inTable(CollectionTableName);
+            }).then(() => console.log('Collection_id column is added to Candidates table.'));
+         }
+      });
+   DBInstance.schema.hasColumn(tableName, 'note')
+      .then(exist => {
+         if (!exist) {
+            DBInstance.schema.table(tableName, (table) => {
+               table.integer('note', 10).defaultTo(0);
+            }).then(() => console.log('Note column is added to Candidates table.'));
+         }
+      });
+   DBInstance.schema.hasColumn(tableName, 'range')
+      .then(exist => {
+         if (!exist) {
+            DBInstance.schema.table(tableName, (table) => {
+               table.integer('range', 10).defaultTo(0);
+            }).then(() => console.log('Range column is added to Candidates table.'));
+         }
+      });
+   DBInstance.schema.hasColumn(tableName, 'anonymous_num')
+      .then(exist => {
+         if (!exist) {
+            DBInstance.schema.table(tableName, (table) => {
+               table.integer('anonymous_num', 10);
+            }).then(() => console.log('Anonymous number column is added to Candidates table.'));
          }
       });
 };

@@ -20,16 +20,15 @@ POST http://localhost:3000/option
 Accept: application/json
 Content-Type: application/json
 
-[
-  {
-    "code": "Me",
-    "libelle": "Mécanique"
-  },
-  {
-    "code": "EE",
-    "libelle": "Energie Eoleen"
-  }
-]
+### Create a region
+POST http://localhost:3000/region
+Accept: application/json
+Content-Type: application/json
+
+{
+  "id": 2,
+  "libelle": "Sud-Ouest"
+}
 
 ### Update a filiere
 PUT http://localhost:3000/filiere/1
