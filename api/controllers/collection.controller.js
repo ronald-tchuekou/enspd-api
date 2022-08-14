@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 14/08/2022 12:38
+ * Copyright (c) 14/08/2022 13:34
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -12,7 +12,8 @@ exports.createCollection = async (req, res) => {
    try {
       const document = req.body;
       const response = await CollectionModel.postCollection(document);
-      res.json(response);
+      const getResponse = await CollectionModel.getCollectionWhere({ id: response[0] });
+      res.json(getResponse);
    } catch (e) {
       res.status(400).json({
          message: 'Une erreur est survenue !',
@@ -24,11 +25,12 @@ exports.createCollection = async (req, res) => {
 exports.updateCollection = async (req, res) => {
    try {
       const document = req.body;
-      const response = await CollectionModel.updateCollection({
+      await CollectionModel.updateCollection({
          ...document,
          updated_at: moment().toDate()
       }, req.params.id);
-      res.json(response);
+      const getResponse = await CollectionModel.getCollectionWhere({ id: req.params.id });
+      res.json(getResponse);
    } catch (e) {
       res.status(400).json({
          message: 'Une erreur est survenue !',
