@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 13/08/2022 17:44
+ * Copyright (c) 14/08/2022 12:38
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -118,5 +118,10 @@ exports.deleteAll = async () => await DBInstance
 
 exports.deleteCandidate = async (id) => await DBInstance
    .where({ id })
+   .delete()
+   .table(tableName);
+
+exports.deleteCandidates = async (collection_id) => await DBInstance
+   .where({ collection_id })
    .delete()
    .table(tableName);

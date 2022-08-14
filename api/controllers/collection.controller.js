@@ -1,10 +1,11 @@
 /*
- * Copyright (c) 13/08/2022 17:43
+ * Copyright (c) 14/08/2022 12:38
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
 
 const CollectionModel = require('../models/collection.model');
+const CandidateModel = require('../models/candidate.model');
 const moment = require('moment');
 
 exports.createCollection = async (req, res) => {
@@ -38,6 +39,7 @@ exports.updateCollection = async (req, res) => {
 
 exports.deleteCollection = async (req, res) => {
    try {
+      await CandidateModel.deleteCandidates(req.params.id);
       const response = await CollectionModel.deleteCollection(req.params.id);
       res.json(response);
    } catch (e) {

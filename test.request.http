@@ -3,12 +3,15 @@ GET http://localhost:3000/option
 Accept: application/json
 
 ### Get all candidates
-GET http://localhost:3000/candidate
+GET http://localhost:3000/candidate?collection_id=1&cursus=Ingénieur
 Accept: application/json
 
 ### Update Candidate
 PUT http://localhost:3000/candidate/4368
-Accept: application/json
+Content-Type: application/json
+
+{
+}
 
 
 ### Get all filiers
@@ -43,3 +46,15 @@ Content-Type: application/json
 DELETE http://localhost:3000/filiere/2
 Accept: application/json
 Content-Type: application/json
+
+### Create a collection
+POST http://localhost:3000/collection
+Content-Type: application/json
+
+{
+  "name": "Collection_1_level_1",
+  "candidate_count": 3492,
+  "admis_candidate_count": 20,
+  "attente_candidate_count": 5,
+  "level": 1
+}
