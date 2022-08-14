@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 14/08/2022 12:38
+ * Copyright (c) 14/08/2022 17:13
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -108,7 +108,7 @@ exports.getCandidates = async () => await DBInstance
    .table(tableName);
 
 exports.getCandidateWhere = async (query) => await DBInstance
-   .where({ query })
+   .where(query)
    .select()
    .table(tableName);
 
