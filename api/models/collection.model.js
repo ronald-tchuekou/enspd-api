@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 13/08/2022 17:43
+ * Copyright (c) 14/08/2022 17:43
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -20,7 +20,8 @@ exports.createTable = () => {
             table.integer('candidate_count', 10);
             table.integer('admis_candidate_count', 10);
             table.integer('attente_candidate_count', 10);
-            table.enum('level', [1, 3]);
+            table.integer('level', 10);
+            table.enum('cursus', ['Science Ingénieur', 'Ingénieur']);
             table.timestamps(true, true, false);
          }).asCallback(() => {
             console.log('Collections table is ready!');
