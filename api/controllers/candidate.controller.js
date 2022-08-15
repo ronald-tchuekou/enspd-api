@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 01/08/2022 06:13
+ * Copyright (c) 15/08/2022 08:11
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -75,6 +75,22 @@ exports.getCandidates = async (req, res) => {
 exports.getCandidateBy = async (req, res) => {
    try {
       const response = await CandidateModel.getCandidateWhere(req.query);
+      res.json(response);
+   } catch (e) {
+      res.status(400).json({
+         message: 'Une erreur est survenue !',
+         error: e.message
+      });
+   }
+};
+
+exports.getPassCandidateBy = async (req, res) => {
+   try {
+      const response = await CandidateModel.getPassCandidateWhere(
+         req.query.collection_id,
+         req.query.attente,
+         req.query.admis
+      );
       res.json(response);
    } catch (e) {
       res.status(400).json({

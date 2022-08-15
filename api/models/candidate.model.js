@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 14/08/2022 17:13
+ * Copyright (c) 15/08/2022 08:11
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -109,6 +109,18 @@ exports.getCandidates = async () => await DBInstance
 
 exports.getCandidateWhere = async (query) => await DBInstance
    .where(query)
+   .select()
+   .table(tableName);
+
+exports.getPassCandidateWhere = async (collection_id, attente, admis) => await DBInstance
+   .where({
+      collection_id,
+      attente
+   })
+   .orWhere({
+      collection_id,
+      admis
+   })
    .select()
    .table(tableName);
 

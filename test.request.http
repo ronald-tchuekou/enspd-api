@@ -3,7 +3,7 @@ GET http://localhost:3000/option
 Accept: application/json
 
 ### Get all candidates
-GET http://localhost:3000/candidate?collection_id=1&cursus=Ingénieur
+GET http://localhost:3000/candidate/pass/by?collection_id=3&admis=1&attente=1
 Accept: application/json
 
 ### Update Candidate
