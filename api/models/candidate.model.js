@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 15/08/2022 08:11
+ * Copyright (c) 15/08/2022 14:45
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -68,12 +68,28 @@ exports.addColumns = () => {
             }).then(() => console.log('Collection_id column is added to Candidates table.'));
          }
       });
-   DBInstance.schema.hasColumn(tableName, 'note')
+   DBInstance.schema.hasColumn(tableName, 'note1')
       .then(exist => {
          if (!exist) {
             DBInstance.schema.table(tableName, (table) => {
-               table.integer('note', 10).defaultTo(0);
-            }).then(() => console.log('Note column is added to Candidates table.'));
+               table.integer('note1', 10).defaultTo(0);
+            }).then(() => console.log('Note1 column is added to Candidates table.'));
+         }
+      });
+   DBInstance.schema.hasColumn(tableName, 'note2')
+      .then(exist => {
+         if (!exist) {
+            DBInstance.schema.table(tableName, (table) => {
+               table.integer('note2', 10).defaultTo(0);
+            }).then(() => console.log('Note2 column is added to Candidates table.'));
+         }
+      });
+   DBInstance.schema.hasColumn(tableName, 'note3')
+      .then(exist => {
+         if (!exist) {
+            DBInstance.schema.table(tableName, (table) => {
+               table.integer('note3', 10).defaultTo(0);
+            }).then(() => console.log('Note3 column is added to Candidates table.'));
          }
       });
    DBInstance.schema.hasColumn(tableName, 'range')
