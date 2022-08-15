@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 05/08/2022 06:39
+ * Copyright (c) 15/08/2022 07:20
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -41,7 +41,7 @@ exports.getDepartements = async () => await DBInstance
    .table(tableName);
 
 exports.getDepartementWhere = async (query) => await DBInstance
-   .where({ query })
+   .where(query)
    .select()
    .table(tableName);
 

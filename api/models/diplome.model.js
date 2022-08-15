@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 04/08/2022 07:48
+ * Copyright (c) 15/08/2022 07:20
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -42,7 +42,7 @@ exports.getDiplomes = async () => await DBInstance
    .table(tableName);
 
 exports.getDiplomeWhere = async (query) => await DBInstance
-   .where({ query })
+   .where(query)
    .select()
    .table(tableName);
 

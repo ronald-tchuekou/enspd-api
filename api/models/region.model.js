@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 04/08/2022 07:28
+ * Copyright (c) 15/08/2022 07:20
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -41,7 +41,7 @@ exports.getRegions = async () => await DBInstance
    .table(tableName);
 
 exports.getRegionWhere = async (query) => await DBInstance
-   .where({ query })
+   .where(query)
    .select()
    .table(tableName);
 

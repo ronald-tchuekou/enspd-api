@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 11/08/2022 05:04
+ * Copyright (c) 15/08/2022 07:20
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -52,7 +52,7 @@ exports.getFilieres = async () => await DBInstance
    .table(tableName);
 
 exports.getFiliereWhere = async (query) => await DBInstance
-   .where({ query })
+   .where(query)
    .select()
    .table(tableName);
 

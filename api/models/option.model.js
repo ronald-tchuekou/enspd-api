@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 12/08/2022 07:33
+ * Copyright (c) 15/08/2022 07:20
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -66,7 +66,7 @@ exports.getOptionWhere = async (query) => await DBInstance
       tableName + '.*',
       FiliereTableName + '.libelle as filiere'
    )
-   .where({ query })
+   .where(query)
    .table(tableName);
 
 exports.deleteAll = async () => await DBInstance

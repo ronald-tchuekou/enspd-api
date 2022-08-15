@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 04/08/2022 07:56
+ * Copyright (c) 15/08/2022 07:20
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -29,7 +29,7 @@ exports.createTable = () => {
             table.string('created_token', 255);
             table.timestamps(true, true, false);
          }).asCallback(() => {
-            seed().then(() => 'Users seed is set.');
+            seed().then(() => console.log('Users seed is set.'));
             console.log('Users table is ready!');
          });
       }
@@ -72,5 +72,3 @@ exports.deleteUser = async (id) => await DBInstance
    .where({ id })
    .delete()
    .table(tableName);
-
-
