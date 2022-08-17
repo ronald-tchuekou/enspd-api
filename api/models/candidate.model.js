@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 17/08/2022 07:24
+ * Copyright (c) 17/08/2022 07:41
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -72,7 +72,7 @@ exports.addColumns = () => {
       .then(exist => {
          if (!exist) {
             DBInstance.schema.table(tableName, (table) => {
-               table.integer('note1', 10).defaultTo(0);
+               table.float('note1', 10).defaultTo(0);
             }).then(() => console.log('Note1 column is added to Candidates table.'));
          }
       });
@@ -80,7 +80,7 @@ exports.addColumns = () => {
       .then(exist => {
          if (!exist) {
             DBInstance.schema.table(tableName, (table) => {
-               table.integer('note2', 10).defaultTo(0);
+               table.float('note2', 10).defaultTo(0);
             }).then(() => console.log('Note2 column is added to Candidates table.'));
          }
       });
@@ -88,7 +88,7 @@ exports.addColumns = () => {
       .then(exist => {
          if (!exist) {
             DBInstance.schema.table(tableName, (table) => {
-               table.integer('note3', 10).defaultTo(0);
+               table.float('note3', 10).defaultTo(0);
             }).then(() => console.log('Note3 column is added to Candidates table.'));
          }
       });
@@ -112,7 +112,7 @@ exports.addColumns = () => {
       .then(exist => {
          if (!exist) {
             DBInstance.schema.table(tableName, (table) => {
-               table.integer('average', 10);
+               table.float('average', 10);
             }).then(() => console.log('Average number column is added to Candidates table.'));
          }
       });
