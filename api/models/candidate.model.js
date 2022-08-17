@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 17/08/2022 07:41
+ * Copyright (c) 17/08/2022 08:02
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -129,12 +129,14 @@ exports.updateCandidate = async (document, id) => await DBInstance
 
 exports.getCandidates = async () => await DBInstance
    .select()
-   .table(tableName);
+   .table(tableName)
+   .orderBy('average', 'desc');
 
 exports.getCandidateWhere = async (query) => await DBInstance
    .where(query)
    .select()
-   .table(tableName);
+   .table(tableName)
+   .orderBy('average', 'desc');
 
 exports.getPassCandidateWhere = async (collection_id, attente, admis) => await DBInstance
    .where({
