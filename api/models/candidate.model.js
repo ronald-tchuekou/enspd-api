@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 15/08/2022 14:45
+ * Copyright (c) 17/08/2022 07:24
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -106,6 +106,14 @@ exports.addColumns = () => {
             DBInstance.schema.table(tableName, (table) => {
                table.integer('anonymous_num', 10);
             }).then(() => console.log('Anonymous number column is added to Candidates table.'));
+         }
+      });
+   DBInstance.schema.hasColumn(tableName, 'average')
+      .then(exist => {
+         if (!exist) {
+            DBInstance.schema.table(tableName, (table) => {
+               table.integer('average', 10);
+            }).then(() => console.log('Average number column is added to Candidates table.'));
          }
       });
 };
