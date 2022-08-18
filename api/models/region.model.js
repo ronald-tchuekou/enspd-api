@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 15/08/2022 07:20
+ * Copyright (c) 18/08/2022 03:30
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -25,6 +25,17 @@ exports.createTable = () => {
             });
       }
    });
+};
+
+exports.addColumns = () => {
+   DBInstance.schema.hasColumn(tableName, 'abreviation')
+      .then(exist => {
+         if (!exist) {
+            DBInstance.schema.table(tableName, (table) => {
+               table.string('abreviation');
+            }).then(() => console.log('Abreviation column is added to Candidates table.'));
+         }
+      });
 };
 
 exports.postRegion = async (document) => await DBInstance

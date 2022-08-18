@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 13/08/2022 17:43
+ * Copyright (c) 18/08/2022 03:30
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -51,6 +51,7 @@ require('./api/models/filiere.model').addCursusColumn();
 require('./api/models/option.model').createTable();
 require('./api/models/option.model').addFiliereIdColumn();
 require('./api/models/region.model').createTable();
+require('./api/models/region.model').addColumns();
 require('./api/models/departement.model').createTable();
 require('./api/models/diplome.model').createTable();
 require('./api/models/user.model').createTable();
