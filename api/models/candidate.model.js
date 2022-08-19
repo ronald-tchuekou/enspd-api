@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 17/08/2022 08:02
+ * Copyright (c) 19/08/2022 08:32
  * @author Ronald Tchuekou
  * @email ronaldtchuekou@gmail.com
  */
@@ -72,7 +72,7 @@ exports.addColumns = () => {
       .then(exist => {
          if (!exist) {
             DBInstance.schema.table(tableName, (table) => {
-               table.float('note1', 10).defaultTo(0);
+               table.float('note1', 10);
             }).then(() => console.log('Note1 column is added to Candidates table.'));
          }
       });
@@ -80,7 +80,7 @@ exports.addColumns = () => {
       .then(exist => {
          if (!exist) {
             DBInstance.schema.table(tableName, (table) => {
-               table.float('note2', 10).defaultTo(0);
+               table.float('note2', 10);
             }).then(() => console.log('Note2 column is added to Candidates table.'));
          }
       });
@@ -88,7 +88,7 @@ exports.addColumns = () => {
       .then(exist => {
          if (!exist) {
             DBInstance.schema.table(tableName, (table) => {
-               table.float('note3', 10).defaultTo(0);
+               table.float('note3', 10);
             }).then(() => console.log('Note3 column is added to Candidates table.'));
          }
       });
@@ -96,7 +96,7 @@ exports.addColumns = () => {
       .then(exist => {
          if (!exist) {
             DBInstance.schema.table(tableName, (table) => {
-               table.integer('range', 10).defaultTo(0);
+               table.integer('range', 10);
             }).then(() => console.log('Range column is added to Candidates table.'));
          }
       });
@@ -108,11 +108,19 @@ exports.addColumns = () => {
             }).then(() => console.log('Anonymous number column is added to Candidates table.'));
          }
       });
+   DBInstance.schema.hasColumn(tableName, 'anonymous_num2')
+      .then(exist => {
+         if (!exist) {
+            DBInstance.schema.table(tableName, (table) => {
+               table.integer('anonymous_num2', 50);
+            }).then(() => console.log('Anonymous number 2 column is added to Candidates table.'));
+         }
+      });
    DBInstance.schema.hasColumn(tableName, 'average')
       .then(exist => {
          if (!exist) {
             DBInstance.schema.table(tableName, (table) => {
-               table.float('average', 10);
+               table.float('average', 50);
             }).then(() => console.log('Average number column is added to Candidates table.'));
          }
       });
