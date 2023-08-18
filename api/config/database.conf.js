@@ -12,16 +12,12 @@ const knex = require('knex');
 exports.getDBInstance = () => knex({
    client: 'mysql',
    connection: {
-      /*host: 'localhost',
+      host: 'localhost',
       port: 3306,
       user: 'root',
       password: '',
-      database: 'enspd_database',*/
-
-      host: 'ee55f0b.online-server.cloud',
-      port: 3306,
-      user: 'roncoder',
-      password: 'password',
       database: 'enspd_database'
+
+      
    }
 });
