@@ -17,6 +17,7 @@ const filiereRoutes = require('./api/routes/filiere.route');
 const optionRoutes = require('./api/routes/option.route');
 const regionRoutes = require('./api/routes/region.route');
 const diplomeRoutes = require('./api/routes/diplome.route');
+const schoolRoutes = require('./api/routes/school.route');
 const departementRoutes = require('./api/routes/departement.route');
 const collectionRoutes = require('./api/routes/collection.route');
 
@@ -54,6 +55,7 @@ require('./api/models/region.model').createTable();
 require('./api/models/region.model').addColumns();
 require('./api/models/departement.model').createTable();
 require('./api/models/diplome.model').createTable();
+require('./api/models/school.model').createTable();
 require('./api/models/user.model').createTable();
 
 // Routes
@@ -66,6 +68,7 @@ app.use('/filiere', filiereRoutes);
 app.use('/option', optionRoutes);
 app.use('/region', regionRoutes);
 app.use('/diplome', diplomeRoutes);
+app.use('/school', schoolRoutes);
 app.use('/departement', departementRoutes);
 app.use('/collection', collectionRoutes);
 

@@ -37,6 +37,9 @@ exports.createTable = () => {
                table.integer('option_choisie', 10);
                table.integer('diplome_entree', 10);
                table.boolean('admis').defaultTo(false);
+               table.integer('school1', 10);
+               table.integer('school2', 10);
+               table.integer('school3', 10);
                table.timestamps(true, true, false);
             })
             .asCallback(() => {
