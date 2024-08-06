@@ -58,3 +58,6 @@ Content-Type: application/json
   "attente_candidate_count": 5,
   "level": 1
 }
+
+### Upate collection counts
+GET http://localhost:3000/collection/update-counts/104

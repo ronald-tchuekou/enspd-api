@@ -9,15 +9,14 @@ const knex = require('knex');
 /**
  * @return {Knex<any, unknown[]>}
  */
-exports.getDBInstance = () => knex({
-   client: 'mysql',
-   connection: {
-      host: 'localhost',
-      port: 3306,
-      user: 'root',
-      password: '',
-      database: 'enspd_database'
-
-      
-   }
-});
+exports.getDBInstance = () =>
+   knex({
+      client: 'mysql',
+      connection: {
+         host: 'localhost',
+         port: 3306,
+         user: 'root',
+         password: '',
+         database: 'enspd_database',
+      },
+   });

@@ -11,6 +11,7 @@ const router = express.Router();
 
 router.get('/', controller.getCollections);
 router.get('/by', controller.getCollectionBy);
+router.get('/update-counts/:id', controller.updateCounts);
 router.put('/:id', controller.updateCollection);
 router.post('/', controller.createCollection);
 router.delete('/:id', controller.deleteCollection);

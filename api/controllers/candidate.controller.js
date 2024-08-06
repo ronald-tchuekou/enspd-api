@@ -5,7 +5,32 @@
  */
 
 const CandidateModel = require('../models/candidate.model');
+const CollectionModel = require('../models/collection.model');
 const moment = require('moment');
+
+exports.moveCandidate = async (req, res) => {
+   const config = {
+      fromCollectionId: req.body.fromCollectionId,
+      toCollectionId: req.body.toCollectionId,
+      admis: req.body.admis,
+      attente: req.body.attente,
+   };
+
+   try {
+      const response = await CandidateModel.moveCandidate(config);
+
+      // Update counts of the two collections.
+      await CollectionModel.updateCounts(config.fromCollectionId);
+      await CollectionModel.updateCounts(config.toCollectionId);
+
+      res.json(response);
+   } catch (e) {
+      res.status(400).json({
+         message: 'Une erreur est survenue !',
+         error: e.message,
+      });
+   }
+};
 
 exports.createCandidate = async (req, res) => {
    try {
@@ -15,7 +40,7 @@ exports.createCandidate = async (req, res) => {
    } catch (e) {
       res.status(400).json({
          message: 'Une erreur est survenue !',
-         error: e.message
+         error: e.message,
       });
    }
 };
@@ -23,27 +48,32 @@ exports.createCandidate = async (req, res) => {
 exports.updateCandidate = async (req, res) => {
    try {
       const document = req.body;
-      const response = await CandidateModel.updateCandidate({
-         ...document,
-         updated_at: moment().toDate()
-      }, req.params.id);
+      const response = await CandidateModel.updateCandidate(
+         {
+            ...document,
+            updated_at: moment().toDate(),
+         },
+         req.params.id
+      );
       res.json(response);
    } catch (e) {
       res.status(400).json({
          message: 'Une erreur est survenue !',
-         error: e.message
+         error: e.message,
       });
    }
 };
 
 exports.deleteCandidate = async (req, res) => {
    try {
-      const response = await CandidateModel.deleteCandidate(req.params.id);
+      const response = await CandidateModel.deleteCandidate(
+         req.params.id
+      );
       res.json(response);
    } catch (e) {
       res.status(400).json({
          message: 'Une erreur est survenue !',
-         error: e.message
+         error: e.message,
       });
    }
 };
@@ -55,7 +85,7 @@ exports.deleteAllCandidate = async (req, res) => {
    } catch (e) {
       res.status(400).json({
          message: 'Une erreur est survenue !',
-         error: e.message
+         error: e.message,
       });
    }
 };
@@ -67,19 +97,21 @@ exports.getCandidates = async (req, res) => {
    } catch (e) {
       res.status(400).json({
          message: 'Une erreur est survenue !',
-         error: e.message
+         error: e.message,
       });
    }
 };
 
 exports.getCandidateBy = async (req, res) => {
    try {
-      const response = await CandidateModel.getCandidateWhere(req.query);
+      const response = await CandidateModel.getCandidateWhere(
+         req.query
+      );
       res.json(response);
    } catch (e) {
       res.status(400).json({
          message: 'Une erreur est survenue !',
-         error: e.message
+         error: e.message,
       });
    }
 };
@@ -95,8 +127,7 @@ exports.getPassCandidateBy = async (req, res) => {
    } catch (e) {
       res.status(400).json({
          message: 'Une erreur est survenue !',
-         error: e.message
+         error: e.message,
       });
    }
 };
-
