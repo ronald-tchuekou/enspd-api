@@ -233,6 +233,7 @@ exports.moveCandidate = async (config) =>
       collection_id: config.fromCollectionId,
       attente: config.attente,
       admis: config.admis,
+      [config.choiceType]: config.schoolId,
    })
       .from(tableName)
       .update({ collection_id: config.toCollectionId });

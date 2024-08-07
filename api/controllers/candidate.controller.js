@@ -14,6 +14,8 @@ exports.moveCandidate = async (req, res) => {
       toCollectionId: req.body.toCollectionId,
       admis: req.body.admis,
       attente: req.body.attente,
+      schoolId: req.body.schoolId,
+      choiceType: req.body.choiceType,
    };
 
    try {
